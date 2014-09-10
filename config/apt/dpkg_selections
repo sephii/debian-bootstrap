@@ -1,0 +1,15 @@
+apt-listchanges purge
+i3 install
+iceweasel install
+keepassx install
+pmount install
+rxvt-unicode install
+sudo install
+ttf-mscorefonts-installer install
+vim install
+vim-gtk install
+virtualenvwrapper install
+wicd-curses install
+xdm install
+xfonts-terminus install
+xserver-xorg install

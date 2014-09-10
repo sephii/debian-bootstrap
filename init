@@ -1,0 +1,9 @@
+#!/bin/sh
+
+for script in scripts/*; do
+    ./runscript $script
+done
+
+if [ -f "hosts/$HOSTNAME" ]; then
+    "./hosts/$HOSTNAME"
+fi

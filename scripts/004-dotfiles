@@ -1,0 +1,35 @@
+#!/bin/sh
+
+SUED=0
+
+if [ "$(whoami)" != "$MAIN_USERNAME" ]; then
+    su $MAIN_USERNAME
+    SUED=1
+fi
+
+cd
+test -d dotfiles || git clone https://github.com/sephii/dotfiles
+cd dotfiles/dotfiles
+git pull
+git branch -a | grep -q " $HOSTNAME$$"
+
+if [ $? -eq 0 ]; then
+    git checkout $HOSTNAME
+fi
+
+for file in .??* *; do
+    if [ -e ~/$file ]; then
+        read -p "File $file already exists in homedir, overwrite? " overwrite
+
+        case $overwrite in
+            [Yy]* ) rm -r ~/$file;;
+            * ) continue;;
+        esac
+    fi
+
+    ln -s ~/dotfiles/dotfiles/$file ~/$file
+done
+
+if [ $SUED -eq 1 ]; then
+    exit
+fi

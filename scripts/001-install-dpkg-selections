@@ -1,0 +1,4 @@
+#!/bin/sh
+
+dpkg --set-selections < config/apt/dpkg_selections
+apt-get -y dselect-upgrade
