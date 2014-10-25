@@ -2,7 +2,9 @@ apt-listchanges purge
 i3 install
 iceweasel install
 keepassx install
+lxc install
 pmount install
+qtcurve install
 rxvt-unicode install
 sudo install
 ttf-mscorefonts-installer install
